@@ -27,6 +27,16 @@
     [LLFScanCode startScanWithView:self];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    LLFScanCode *scanCode = [LLFScanCode shareInstance];
+    scanCode.isNext = NO;
+    scanCode.scanCode = ^(NSString *code) {
+        NSLog(@"%@",code);
+    };
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];

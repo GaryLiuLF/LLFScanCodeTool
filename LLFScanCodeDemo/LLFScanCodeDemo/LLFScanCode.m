@@ -26,9 +26,6 @@
 @property (nonatomic, strong) AVCaptureMetadataOutput *captureMetadataOutput;
 // 扫描码
 @property (nonatomic, copy) NSString *code;
-@property (nonatomic, assign) int flag; // 多次输出
-
-
 
 @end
 
@@ -246,18 +243,17 @@
         AVMetadataMachineReadableCodeObject *metadataObj = metadataObjects[0];
         if (_code == nil) {  // 获取第一个值
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"%@",metadataObj.stringValue);
-            });
-            if (!self.isNext) {
-                return;
-            }
             _code = metadataObj.stringValue;
-            ++_flag;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!self.scanCode) {
+                    self.scanCode(_code);
+                }
+            });
         }
         else {
-            _flag = 0;
-            _code = nil;
+            if (!self.isNext) {
+                _code = nil;
+            }
         }
     }
 }

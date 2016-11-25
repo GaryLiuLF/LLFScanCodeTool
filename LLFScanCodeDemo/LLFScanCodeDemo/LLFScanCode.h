@@ -24,8 +24,10 @@ typedef void(^ScanCode)(NSString *code);
 // 单例
 + (instancetype)shareInstance;
 // 开始扫描
+// 提示：建议该类方法放在- (void)viewWillAppear:(BOOL)animated
 + (void)startScanWithView:(UIViewController *)vc;
 // 结束扫描
+// 提示：建议该类方法放在- (void)viewDidDisappear:(BOOL)animated
 + (void)stop;
 
 @end

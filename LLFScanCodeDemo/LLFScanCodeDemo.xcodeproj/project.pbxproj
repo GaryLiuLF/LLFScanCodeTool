@@ -544,6 +544,7 @@
 				EBEEB6A81DE6D5350001A066 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBEEB6A91DE6D5350001A066 /* Build configuration list for PBXNativeTarget "LLFScanCodeDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +553,7 @@
 				EBEEB6AB1DE6D5350001A066 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBEEB6AC1DE6D5350001A066 /* Build configuration list for PBXNativeTarget "LLFScanCodeDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +562,7 @@
 				EBEEB6AE1DE6D5350001A066 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
