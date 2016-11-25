@@ -243,17 +243,17 @@
         AVMetadataMachineReadableCodeObject *metadataObj = metadataObjects[0];
         if (_code == nil) {  // 获取第一个值
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-            _code = metadataObj.stringValue;
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (!self.scanCode) {
-                    self.scanCode(_code);
+                if (self.scanCode) {
+                    self.scanCode(metadataObj.stringValue);
                 }
             });
+            _code = metadataObj.stringValue;
         }
-        else {
-            if (!self.isNext) {
-                _code = nil;
-            }
+    }
+    else {
+        if (self.isNext) {
+            _code = nil;
         }
     }
 }
