@@ -26,8 +26,9 @@
 @property (nonatomic, strong) AVCaptureMetadataOutput *captureMetadataOutput;
 // 扫描码
 @property (nonatomic, copy) NSString *code;
+@property (nonatomic, assign) int flag; // 多次输出
 
-@property(nonatomic,copy)void(^completeBlock)(NSString *code);
+
 
 @end
 
@@ -48,6 +49,18 @@
 + (void)startScanWithView:(UIViewController *)vc {
     LLFScanCode *scanCode = [LLFScanCode shareInstance];
     scanCode.vc = vc;
+    if ((int)scanCode.scan_minX == 0) {
+        scanCode.scan_minX = 50;
+    }
+    if ((int)scanCode.scan_minY == 0) {
+        scanCode.scan_minY = 50;
+    }
+    if ((int)scanCode.scan_width == 0) {
+        scanCode.scan_width = SCREEN_WIDTH - scanCode.scan_minX * 2;
+    }
+    if ((int)scanCode.scan_height == 0) {
+        scanCode.scan_height = scanCode.scan_width;
+    }
     
     if (scanCode.captureSession == nil) {
         [scanCode lazyExcute];
@@ -172,18 +185,6 @@
     // 创建路径 绘制和透明黑色遮盖一样的矩形
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, CGRectGetWidth(maskView.frame), CGRectGetHeight(maskView.frame))];
     // 路径取反 绘制中间空白透明的矩形，并且取反路径。这样整个绘制的范围就只剩下，中间的矩形和边界的部分
-    if ((int)scanCode.scan_minX == 0) {
-        scanCode.scan_minX = 50;
-    }
-    if ((int)scanCode.scan_minY == 0) {
-        scanCode.scan_minY = 50;
-    }
-    if ((int)scanCode.scan_width == 0) {
-        scanCode.scan_width = SCREEN_WIDTH - scanCode.scan_minX * 2;
-    }
-    if ((int)scanCode.scan_height == 0) {
-        scanCode.scan_height = scanCode.scan_width;
-    }
     [path appendPath:[[UIBezierPath bezierPathWithRect:CGRectMake(scanCode.scan_minX, scanCode.scan_minY, scanCode.scan_width, scanCode.scan_height)]bezierPathByReversingPath]];
     
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -244,12 +245,19 @@
         
         AVMetadataMachineReadableCodeObject *metadataObj = metadataObjects[0];
         if (_code == nil) {  // 获取第一个值
-            _code = metadataObj.stringValue;
-            
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
             dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"%@",_code);
+                    NSLog(@"%@",metadataObj.stringValue);
             });
+            if (!self.isNext) {
+                return;
+            }
+            _code = metadataObj.stringValue;
+            ++_flag;
+        }
+        else {
+            _flag = 0;
+            _code = nil;
         }
     }
 }
