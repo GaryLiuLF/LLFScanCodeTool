@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LLFScanCode.h"
+#import "NextViewController.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"扫描";
     self.view.backgroundColor = [UIColor blackColor];
 }
 
@@ -34,13 +36,21 @@
     scanCode.isNext = NO;
     scanCode.scanCode = ^(NSString *code) {
         NSLog(@"%@",code);
+        NextViewController *nextvc = [NextViewController new];
+        [self.navigationController pushViewController:nextvc animated:YES];
     };
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     [LLFScanCode stop];
 }
+
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [super viewDidDisappear:animated];
+//    [LLFScanCode stop];
+//}
 
 @end

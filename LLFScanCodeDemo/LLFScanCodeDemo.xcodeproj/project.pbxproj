@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186C25061DF5560E008AE1E3 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186C25051DF5560E008AE1E3 /* NextViewController.m */; };
 		EBEEB67E1DE6D5350001A066 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEB67D1DE6D5350001A066 /* main.m */; };
 		EBEEB6811DE6D5350001A066 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEB6801DE6D5350001A066 /* AppDelegate.m */; };
 		EBEEB6841DE6D5350001A066 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEB6831DE6D5350001A066 /* ViewController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		186C25041DF5560E008AE1E3 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
+		186C25051DF5560E008AE1E3 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 		EBEEB6791DE6D5350001A066 /* LLFScanCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLFScanCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEEB67D1DE6D5350001A066 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBEEB67F1DE6D5350001A066 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				EBEEB6801DE6D5350001A066 /* AppDelegate.m */,
 				EBEEB6821DE6D5350001A066 /* ViewController.h */,
 				EBEEB6831DE6D5350001A066 /* ViewController.m */,
+				186C25041DF5560E008AE1E3 /* NextViewController.h */,
+				186C25051DF5560E008AE1E3 /* NextViewController.m */,
 				EBEEB6851DE6D5350001A066 /* Main.storyboard */,
 				EBEEB6881DE6D5350001A066 /* Assets.xcassets */,
 				EBEEB68A1DE6D5350001A066 /* LaunchScreen.storyboard */,
@@ -236,7 +241,7 @@
 				TargetAttributes = {
 					EBEEB6781DE6D5350001A066 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = XL372J3848;
+						DevelopmentTeam = 27CBEDY8VV;
 						ProvisioningStyle = Automatic;
 					};
 					EBEEB6911DE6D5350001A066 = {
@@ -305,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186C25061DF5560E008AE1E3 /* NextViewController.m in Sources */,
 				EBEEB6841DE6D5350001A066 /* ViewController.m in Sources */,
 				EBEEB6811DE6D5350001A066 /* AppDelegate.m in Sources */,
 				EBEEB6B51DE6D5710001A066 /* LLFScanCode.m in Sources */,
@@ -455,7 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XL372J3848;
+				DEVELOPMENT_TEAM = 27CBEDY8VV;
 				INFOPLIST_FILE = LLFScanCodeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.winsafe.gary.LLFScanCodeDemo;
@@ -467,7 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XL372J3848;
+				DEVELOPMENT_TEAM = 27CBEDY8VV;
 				INFOPLIST_FILE = LLFScanCodeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.winsafe.gary.LLFScanCodeDemo;
